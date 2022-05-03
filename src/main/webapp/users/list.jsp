@@ -14,30 +14,36 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <a href="/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Add new user</a>
     </div>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Users list: </h6>
+                </div>
+                <div class="card-body">
+                    <table class = "table">
+                        <tr>
+                            <th>ID:</th>
+                            <th>Username:</th>
+                            <th>Email: </th>
+                        </tr>
+                        <c:forEach items="${users}" var="user">
+                        <tr>
+                            <td>${user.getId()}</td>
+                            <td>${user.getUserName()}</td>
+                            <td>${user.getEmail()} </td>
+                            <td>
+                            <a href="editUser.jsp">Edit</a>
+                                <a href="deleteUser.jsp">Delete</a>
+                                <a href="/user/show?id=${user.getId()}">Details</a>
+                            </td>
+                        </tr>
+                        </c:forEach>
 
-    <!-- Content Row -->
-    <div class="row">
-
-
-        <!-- Content Row -->
-
-
-        <!-- Content Row -->
-        <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-
-                <div class="col-lg-6 mb-4">
-
-
+                    </table>
                 </div>
             </div>
-
         </div>
         <!-- /.container-fluid -->
 

@@ -9,6 +9,9 @@ import java.io.IOException;
 public class UserList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       UserDAO userDAO = new UserDAO();
+       request.setAttribute("users", userDAO.findAllUsers());
+
     getServletContext().getRequestDispatcher("/users/list.jsp").forward(request, response);
     }
 
