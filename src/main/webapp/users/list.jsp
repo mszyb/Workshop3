@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/header.jsp" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -17,37 +17,37 @@
         <a href="/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Add new user</a>
     </div>
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Users list: </h6>
-                </div>
-                <div class="card-body">
-                    <table class = "table">
-                        <tr>
-                            <th>ID:</th>
-                            <th>Username:</th>
-                            <th>Email: </th>
-                        </tr>
-                        <c:forEach items="${users}" var="user">
-                        <tr>
-                            <td>${user.getId()}</td>
-                            <td>${user.getUserName()}</td>
-                            <td>${user.getEmail()} </td>
-                            <td>
-                            <a href="editUser.jsp">Edit</a>
-                                <a href="deleteUser.jsp">Delete</a>
-                                <a href="/user/show?id=${user.getId()}">Details</a>
-                            </td>
-                        </tr>
-                        </c:forEach>
-
-                    </table>
-                </div>
-            </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Users list: </h6>
         </div>
-        <!-- /.container-fluid -->
+        <div class="card-body">
+            <table class="table">
+                <tr>
+                    <th>ID:</th>
+                    <th>Username:</th>
+                    <th>Email:</th>
+                </tr>
+                <c:forEach items="${users}" var="user">
+                    <tr>
+                        <td>${user.getId()}</td>
+                        <td>${user.getUserName()}</td>
+                        <td>${user.getEmail()} </td>
+                        <td>
+                            <a href="/user/edit?id=${user.getId()}">Edit</a>
+                            <a href="/user/delete?id=${user.getId()}">Delete</a>
+                            <a href="/user/show?id=${user.getId()}">Details</a>
+                        </td>
+                    </tr>
+                </c:forEach>
 
+            </table>
+        </div>
     </div>
-    <!-- End of Main Content -->
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
 
 <%@ include file="/footer.jsp" %>

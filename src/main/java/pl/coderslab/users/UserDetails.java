@@ -9,10 +9,9 @@ import java.io.IOException;
 public class UserDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = new User();
+        long id = Long.parseLong(request.getParameter("id"));
         UserDAO userDAO = new UserDAO();
-        user = userDAO.readUser(id);
+        User user = userDAO.readUser(id);
         request.setAttribute("user", user);
         getServletContext().getRequestDispatcher("/users/userDetails.jsp").forward(request, response);
     }

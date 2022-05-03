@@ -11,14 +11,13 @@
 
 <div class="card-body">
         <table class="table">
-       <tr>
-           <th>
-               <h1>Please provide correct data!</h1> <br>
-               <a href="/user/add">Get me back</a>
-           </th>
-       </tr>
+            <tr>
+                <th>
+                    <h1>Please provide correct data!</h1> <br>
+                    <a href="/user/edit?id=${oldID}">Get me back</a>
+                </th>
+            </tr>
         </table>
-
 </div>
 </div>
 </div>
